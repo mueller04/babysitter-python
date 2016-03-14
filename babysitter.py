@@ -14,6 +14,8 @@ class Babysitter():
     def validateTime(self, start_time, end_time):
         if start_time < 17 and start_time > 3:
             return "start time cannot be before 5pm or after 3am"
+        elif end_time > 4 and end_time < 18:
+            return "end time cannot be before 6pm or after 4am"
         else:
             return None
 

@@ -23,3 +23,9 @@ class BabysitterTest(unittest.TestCase):
 
     def test_paid_8hr_bedtime_to_midnight(self):
         self.assertEqual(16, Babysitter.calculate(self.babysitter, 22, 24))
+
+    def test_endtime_cannot_be_after_4am(self):
+        self.assertEqual("end time cannot be before 6pm or after 4am", Babysitter.calculate(self.babysitter, 20, 5))
+
+    def test_endtime_cannot_be_before_6pm(self):
+        self.assertEqual("end time cannot be before 6pm or after 4am", Babysitter.calculate(self.babysitter, 17, 17))
