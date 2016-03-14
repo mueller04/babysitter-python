@@ -13,4 +13,7 @@ class BabysitterTest(unittest.TestCase):
         self.assertEqual("start time cannot be before 5pm or after 3am", Babysitter.calculate(self.babysitter, 4))
 
     def test_valid_starttime(self):
-        self.assertEqual("ok", Babysitter.calculate(self.babysitter, 17))
+        self.assertNotEqual("start time cannot be before 5pm or after 3am", Babysitter.calculate(self.babysitter, 17))
+
+    def test_paid_12hr_start_to_bedtime(self):
+        self.assertEqual(60, Babysitter.calculate(self.babysitter, 17))
