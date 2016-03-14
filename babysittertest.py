@@ -20,3 +20,6 @@ class BabysitterTest(unittest.TestCase):
 
     def test_paid_12hr_start_to_endtime(self):
         self.assertEqual(48, Babysitter.calculate(self.babysitter, 17, 21))
+
+    def test_paid_8hr_bedtime_to_midnight(self):
+        self.assertEqual(16, Babysitter.calculate(self.babysitter, 22, 24))
