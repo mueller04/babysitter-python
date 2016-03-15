@@ -1,6 +1,8 @@
 START_TIME_RATE = 12
 BED_TIME = 22
 BED_TIME_RATE = 8
+MIDNIGHT = 24
+MIDNIGHT_RATE = 16
 
 class Babysitter():
 
@@ -20,10 +22,20 @@ class Babysitter():
             return None
 
     def totalPay(self, start_time, end_time):
+        if end_time < 5:
+            end_time += 24
+
+        print "start_time"
+        print start_time
+        print end_time
+        print "next"
+
         total = 0
         for count in range(start_time, end_time):
             if count < BED_TIME:
                 total += START_TIME_RATE
-            elif count >= BED_TIME:
-                total+= BED_TIME_RATE
+            elif count >= BED_TIME and count < MIDNIGHT:
+                total += BED_TIME_RATE
+            elif count >= MIDNIGHT:
+                total += MIDNIGHT_RATE
         return total
